@@ -2,9 +2,10 @@ const left = document.querySelector(".left")
 const right = document.querySelector(".right")
 const slider = document.querySelector(".slider")
 const images = document.querySelectorAll(".img")
-const legnth = images.length
+const bottom = document.querySelector(".bottom")
 
 let slideNumber = 1
+const legnth = images.length
 
 const nextSlide = ()=>{
     if (slideNumber < legnth){
@@ -35,9 +36,18 @@ right.addEventListener("click",()=>{
     slideNumber < legnth ? nextSlide() : firstSlide()
     
 })
-
+  
 
 left.addEventListener("click",()=>{
     slideNumber > 1 ? prevSlide() : lastSlide()
     
 })
+
+for(let i=0; i<legnth; i++) {
+    const div = document.createElement("div");
+    div.className = "button";
+    bottom.appendChild(div)
+}
+
+const buttons = document.querySelectorAll("button")
+console.log(buttons[0])
