@@ -12,10 +12,24 @@ const nextSlide = ()=>{
             slideNumber++;}
 }
 
+
+const prevSlide = ()=>{
+    slider.style.transform = `translateX(-${(slideNumber-2)*800}px)`;
+    slideNumber--;
+}
+
 const firstSlide = ()=>{
     slider.style.transform = `translateX(0px)`;
     slideNumber = 1;
 }
+
+
+const lastSlide = ()=>{
+    slider.style.transform = `translateX(-${(legnth-1)*800}px)`;
+    slideNumber = legnth;
+}
+
+
 
 right.addEventListener("click",()=>{
     slideNumber < legnth ? nextSlide() : firstSlide()
@@ -23,3 +37,7 @@ right.addEventListener("click",()=>{
 })
 
 
+left.addEventListener("click",()=>{
+    slideNumber > 1 ? prevSlide() : lastSlide()
+    
+})
