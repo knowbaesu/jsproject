@@ -51,27 +51,10 @@ for(let i=0; i<legnth; i++) {
 }
 
 const buttons = document.querySelectorAll(".button")
-// console.log("button",buttons)
-// buttons[0].style.backgroundColor ="white"
+button[0].style.backgroundColor = "white"
 
-const ChanButtonColor = ()=>{
-
-}
-
-right.addEventListener("click",()=>{
-    if(i==0){ firstBuootn() 
-
-    }else {
-        rightButtonColor()
-    }
-})
-
-const firstBuootn = ()=>{
-    buttons[0].style.backgroundColor ="white"
-    i++
-}
-
-const rightButtonColor = ()=> {
-    buttons[i].style.backgroundColor ="white"
-    i++;
-}
+buttons.forEach((button,i) => {
+    button.addEventListener("click",()=>{
+    slider.sytle.transform = `translateX(-${i*800}px)`
+    })    
+    })
