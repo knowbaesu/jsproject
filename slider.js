@@ -6,7 +6,32 @@ const bottom = document.querySelector(".bottom")
 
 let slideNumber = 1
 let i = 0
-const legnth = images.length
+const legnth = images.length;
+
+for(let i=0; i<legnth; i++) {
+    const div = document.createElement("div");
+    div.className = "button";
+    bottom.appendChild(div)
+}
+
+const buttons = document.querySelectorAll(".button")
+buttons[0].style.backgroundColor = "white"
+
+
+const resetBg = ()=>{
+    buttons.forEach(button => {
+        button.style.backgroundColor = "transparent"
+    })
+}
+
+buttons.forEach((button,i) => {
+    button.addEventListener("click",()=>{
+    resetBg()
+    slider.style.transform = `translateX(-${i*800}px)`
+    slideNumber = i + 1;
+    button.style.backgroundColor = "white"
+    })    
+    })
 
 const nextSlide = ()=>{
     if (slideNumber < legnth){
@@ -31,30 +56,22 @@ const lastSlide = ()=>{
     slideNumber = legnth;
 }
 
-
+const changeColorButton = ()=>{
+    resetBg();
+    buttons[slideNumber-1].style.backgroundColor = "white"
+}
 
 right.addEventListener("click",()=>{
     slideNumber < legnth ? nextSlide() : firstSlide()
-    
+    resetBg();
+    buttons[slideNumber-1].style.backgroundColor = "white"
 })
   
 
 left.addEventListener("click",()=>{
     slideNumber > 1 ? prevSlide() : lastSlide()
-    
+    resetBg();
+    buttons[slideNumber-1].style.backgroundColor = "white"
 })
 
-for(let i=0; i<legnth; i++) {
-    const div = document.createElement("div");
-    div.className = "button";
-    bottom.appendChild(div)
-}
 
-const buttons = document.querySelectorAll(".button")
-button[0].style.backgroundColor = "white"
-
-buttons.forEach((button,i) => {
-    button.addEventListener("click",()=>{
-    slider.sytle.transform = `translateX(-${i*800}px)`
-    })    
-    })
